@@ -1,36 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const themeOptions = document.querySelectorAll('.dial-option');
-    const dialCenter = document.querySelector('.dial-center');
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.querySelector('.theme-icon');
+    const themes = ['theme-dark', 'theme-light', 'theme-light-blue', 'theme-dark-blue'];
+    const themeIcons = ['🌑', '☀️', '🔆', '🌊'];
+    let currentThemeIndex = 0;
 
-    // Charger le thème sauvegardé
-    const savedTheme = localStorage.getItem('portfolio-theme') || 'theme-dark';
-    document.body.className = savedTheme;
-    updateActiveTheme(savedTheme);
-
-    // Gérer les clics sur les options
-    themeOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            const theme = this.getAttribute('data-theme');
-            document.body.className = theme;
-            localStorage.setItem('portfolio-theme', theme);
-            updateActiveTheme(theme);
-        });
-    });
-
-    // Mettre à jour l'option active
-    function updateActiveTheme(theme) {
-        themeOptions.forEach(option => {
-            option.classList.remove('active');
-            if (option.getAttribute('data-theme') === theme) {
-                option.classList.add('active');
-                dialCenter.textContent = option.textContent;
-            }
-        });
+    // Vérifie s'il y a un thème sauvegardé dans localStorage
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    if (savedTheme) {
+        document.body.className = savedTheme;
+        currentThemeIndex = themes.indexOf(savedTheme);
+        themeIcon.textContent = themeIcons[currentThemeIndex];
     }
 
-    // Faire tourner le cadran au clic sur le centre
-    dialCenter.addEventListener('click', function() {
-        const dialOptions = document.querySelector('.dial-options');
-        dialOptions.classList.toggle('rotated');
+    themeToggle.addEventListener('click', function() {
+        // Passe au thème suivant
+        currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+        
+        // Applique le nouveau thème
+        const newTheme = themes[currentThemeIndex];
+        document.body.className = newTheme;
+        themeIcon.textContent = themeIcons[currentThemeIndex];
+        
+        // Sauvegarde le thème
+        localStorage.setItem('portfolio-theme', newTheme);
     });
 });
