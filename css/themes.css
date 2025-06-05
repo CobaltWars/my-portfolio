@@ -154,3 +154,43 @@ nav ul li a::after {
     background-color: #0d2137;
     color: #e3f2fd;
 }
+
+/* Nouveau sélecteur de thème */
+.theme-toggle {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: var(--bg-secondary);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-speed);
+}
+
+.theme-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+/* Styles pour chaque état du toggle */
+body.theme-dark .theme-icon {
+    content: "🌑";
+}
+
+body.theme-light .theme-icon {
+    content: "☀️";
+    transform: rotate(90deg);
+}
+
+body.theme-light-blue .theme-icon {
+    content: "🔆";
+    transform: rotate(180deg);
+}
+
+body.theme-dark-blue .theme-icon {
+    content: "🌊";
+    transform: rotate(270deg);
+}

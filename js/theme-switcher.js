@@ -1,51 +1,28 @@
-// Gestion des thèmes pour le portfolio
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.querySelector('.theme-icon');
+    const themes = ['theme-dark', 'theme-light', 'theme-light-blue', 'theme-dark-blue'];
+    const themeIcons = ['🌑', '☀️', '🔆', '🌊'];
+    let currentThemeIndex = 0;
 
-// Fonction pour définir le thème
-function setTheme(themeName) {
-    // Supprime toutes les classes de thème du body
-    document.body.classList.remove('theme-dark', 'theme-light', 'theme-light-blue', 'theme-dark-blue');
-    
-    // Ajoute la classe du thème sélectionné
-    document.body.classList.add(themeName);
-    
-    // Enregistre le thème dans le localStorage
-    localStorage.setItem('theme', themeName);
-    
-    // Met à jour les boutons de thème
-    updateThemeButtons(themeName);
-}
-
-// Fonction pour mettre à jour l'état des boutons de thème
-function updateThemeButtons(themeName) {
-    // Supprime la classe active de tous les boutons
-    document.querySelectorAll('.theme-button').forEach(button => {
-        button.classList.remove('active');
-    });
-    
-    // Ajoute la classe active au bouton du thème sélectionné
-    const activeButton = document.getElementById(themeName);
-    if (activeButton) {
-        activeButton.classList.add('active');
+    // Vérifie s'il y a un thème sauvegardé dans localStorage
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    if (savedTheme) {
+        document.body.className = savedTheme;
+        currentThemeIndex = themes.indexOf(savedTheme);
+        themeIcon.textContent = themeIcons[currentThemeIndex];
     }
-}
 
-// Fonction pour initialiser le thème
-function initTheme() {
-    // Récupère le thème enregistré ou utilise le thème sombre par défaut
-    const savedTheme = localStorage.getItem('theme') || 'theme-dark';
-    
-    // Applique le thème
-    setTheme(savedTheme);
-}
-
-// Ajoute les écouteurs d'événements aux boutons de thème
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialise le thème
-    initTheme();
-    
-    // Ajoute les écouteurs d'événements aux boutons de thème
-    document.getElementById('theme-dark').addEventListener('click', () => setTheme('theme-dark'));
-    document.getElementById('theme-light').addEventListener('click', () => setTheme('theme-light'));
-    document.getElementById('theme-light-blue').addEventListener('click', () => setTheme('theme-light-blue'));
-    document.getElementById('theme-dark-blue').addEventListener('click', () => setTheme('theme-dark-blue'));
+    themeToggle.addEventListener('click', function() {
+        // Passe au thème suivant
+        currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+        
+        // Applique le nouveau thème
+        const newTheme = themes[currentThemeIndex];
+        document.body.className = newTheme;
+        themeIcon.textContent = themeIcons[currentThemeIndex];
+        
+        // Sauvegarde le thème
+        localStorage.setItem('portfolio-theme', newTheme);
+    });
 });
