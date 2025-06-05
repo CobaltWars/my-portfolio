@@ -1,0 +1,34 @@
+id,title,type,short_description,full_description,thumbnail,images,download_link,github_link,release_date,technologies
+soft1,TaskMaster,software,Un gestionnaire de tâches minimaliste avec synchronisation cloud,"TaskMaster est une application de gestion de tâches minimaliste mais puissante, conçue pour vous aider à organiser votre travail efficacement. L'interface épurée permet de se concentrer sur l'essentiel tout en offrant des fonctionnalités avancées.
+
+Caractéristiques principales:
+- Interface utilisateur intuitive et épurée
+- Organisation des tâches par projets et étiquettes
+- Rappels et notifications personnalisables
+- Synchronisation cloud entre tous vos appareils
+- Mode hors ligne avec synchronisation automatique
+- Statistiques de productivité et rapports hebdomadaires
+
+Développé avec Electron pour une compatibilité multi-plateforme, TaskMaster est disponible sur Windows, macOS et Linux.",img/software/taskmaster_thumb.jpg,"img/software/taskmaster_1.jpg,img/software/taskmaster_2.jpg,img/software/taskmaster_3.jpg",https://example.com/download/taskmaster,https://github.com/monpseudo/taskmaster,2024-02-20,"Electron, JavaScript, React, Node.js"
+soft2,CodeSnippet,software,Un gestionnaire de snippets de code avec coloration syntaxique,"CodeSnippet est une application qui vous permet de sauvegarder, organiser et retrouver facilement vos extraits de code. Idéal pour les développeurs qui souhaitent conserver une bibliothèque personnelle de solutions réutilisables.
+
+Fonctionnalités:
+- Coloration syntaxique pour plus de 50 langages de programmation
+- Organisation par catégories, tags et langages
+- Recherche avancée avec filtres multiples
+- Partage de snippets via URL ou export
+- Synchronisation avec GitHub Gist
+- Mode sombre et clair adaptable
+
+Cette application web progressive (PWA) peut être installée sur n'importe quel appareil et fonctionne même hors ligne.",img/software/codesnippet_thumb.jpg,"img/software/codesnippet_1.jpg,img/software/codesnippet_2.jpg,img/software/codesnippet_3.jpg",https://example.com/app/codesnippet,https://github.com/monpseudo/codesnippet,2023-09-05,"Vue.js, Firebase, PWA, Highlight.js"
+soft3,DataVizPro,software,Un outil de visualisation de données avec exports personnalisables,"DataVizPro est une application de visualisation de données qui transforme vos données brutes en graphiques interactifs et informatifs. Conçue pour être accessible aux débutants tout en offrant des options avancées pour les professionnels.
+
+L'application propose:
+- Import de données depuis CSV, Excel, JSON et API
+- Plus de 20 types de visualisations (graphiques, diagrammes, cartes)
+- Personnalisation complète des couleurs, polices et styles
+- Filtres et transformations de données intégrés
+- Export en PNG, SVG, PDF et HTML interactif
+- Partage de tableaux de bord en ligne
+
+DataVizPro est une application web qui fonctionne dans tous les navigateurs modernes, avec une version desktop disponible pour les utilisations professionnelles.",img/software/datavizpro_thumb.jpg,"img/software/datavizpro_1.jpg,img/software/datavizpro_2.jpg,img/software/datavizpro_3.jpg",https://example.com/download/datavizpro,https://github.com/monpseudo/datavizpro,2024-04-12,"Python, Flask, D3.js, Pandas"

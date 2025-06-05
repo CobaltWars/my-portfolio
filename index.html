@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Développeur</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <script src="js/theme-switcher.js" defer></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body class="theme-dark">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Mon Portfolio</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <li><a href="games.html">Jeux</a></li>
+                    <li><a href="software.html">Logiciels</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="theme-selector">
+                <button id="theme-dark" class="theme-button active" title="Thème sombre">🌑</button>
+                <button id="theme-light" class="theme-button" title="Thème clair">☀️</button>
+                <button id="theme-light-blue" class="theme-button" title="Thème clair bleu">🔆</button>
+                <button id="theme-dark-blue" class="theme-button" title="Thème sombre bleu">🌊</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Bienvenue sur mon portfolio</h2>
+                <p>Développeur passionné de jeux et d'applications</p>
+            </div>
+        </section>
+
+        <section class="featured-projects">
+            <div class="container">
+                <h2>Projets à la une</h2>
+                <div class="projects-grid" id="featured-projects-container">
+                    <!-- Les projets seront chargés dynamiquement depuis le CSV -->
+                    <div class="loading">Chargement des projets...</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <h2>À propos de moi</h2>
+                <p>Je suis un développeur passionné par la création de jeux et d'applications. Mon objectif est de concevoir des expériences interactives innovantes et accessibles.</p>
+                <p>Explorez mon portfolio pour découvrir mes différents projets et n'hésitez pas à me contacter pour toute collaboration ou question.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 - Mon Portfolio de Développeur</p>
+        </div>
+    </footer>
+</body>
+</html>

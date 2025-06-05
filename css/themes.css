@@ -1,0 +1,156 @@
+/* Thèmes pour le portfolio */
+
+/* Thème sombre (par défaut) */
+.theme-dark {
+    --bg-color: #121212;
+    --bg-secondary: #1e1e1e;
+    --text-color: #f5f5f5;
+    --text-secondary: #b0b0b0;
+    --accent-color: #64b5f6;
+    --border-color: #333333;
+    --card-bg: #1e1e1e;
+    --input-bg: #2d2d2d;
+    --input-border: #444444;
+    --btn-bg: #64b5f6;
+    --btn-text: #121212;
+    --header-bg: #1a1a1a;
+    --footer-bg: #1a1a1a;
+}
+
+/* Thème clair */
+.theme-light {
+    --bg-color: #f5f5f5;
+    --bg-secondary: #ffffff;
+    --text-color: #121212;
+    --text-secondary: #555555;
+    --accent-color: #1976d2;
+    --border-color: #dddddd;
+    --card-bg: #ffffff;
+    --input-bg: #ffffff;
+    --input-border: #cccccc;
+    --btn-bg: #1976d2;
+    --btn-text: #ffffff;
+    --header-bg: #ffffff;
+    --footer-bg: #f0f0f0;
+}
+
+/* Thème clair bleu */
+.theme-light-blue {
+    --bg-color: #e3f2fd;
+    --bg-secondary: #ffffff;
+    --text-color: #0d47a1;
+    --text-secondary: #1565c0;
+    --accent-color: #2196f3;
+    --border-color: #bbdefb;
+    --card-bg: #ffffff;
+    --input-bg: #ffffff;
+    --input-border: #90caf9;
+    --btn-bg: #2196f3;
+    --btn-text: #ffffff;
+    --header-bg: #bbdefb;
+    --footer-bg: #bbdefb;
+}
+
+/* Thème sombre bleu */
+.theme-dark-blue {
+    --bg-color: #0d2137;
+    --bg-secondary: #0f2942;
+    --text-color: #e3f2fd;
+    --text-secondary: #bbdefb;
+    --accent-color: #29b6f6;
+    --border-color: #1a3c5a;
+    --card-bg: #0f2942;
+    --input-bg: #1a3c5a;
+    --input-border: #1e4976;
+    --btn-bg: #29b6f6;
+    --btn-text: #0d2137;
+    --header-bg: #0a1b2a;
+    --footer-bg: #0a1b2a;
+}
+
+/* Application des couleurs de thème aux éléments */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+header {
+    background-color: var(--header-bg);
+}
+
+footer {
+    background-color: var(--footer-bg);
+}
+
+a {
+    color: var(--accent-color);
+}
+
+nav ul li a::after {
+    background-color: var(--accent-color);
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card {
+    background-color: var(--card-bg);
+}
+
+.contact-form {
+    background-color: var(--card-bg);
+}
+
+.form-group input,
+.form-group textarea {
+    background-color: var(--input-bg);
+    border-color: var(--input-border);
+    color: var(--text-color);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+}
+
+.btn {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.theme-button {
+    color: var(--text-color);
+    opacity: 0.5;
+}
+
+.theme-button.active {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+/* Styles spécifiques pour les boutons de thème */
+#theme-dark {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+#theme-light {
+    background-color: #f5f5f5;
+    color: #121212;
+}
+
+#theme-light-blue {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+}
+
+#theme-dark-blue {
+    background-color: #0d2137;
+    color: #e3f2fd;
+}

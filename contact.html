@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Portfolio Développeur</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <script src="js/theme-switcher.js" defer></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body class="theme-dark">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Mon Portfolio</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="games.html">Jeux</a></li>
+                    <li><a href="software.html">Logiciels</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="theme-selector">
+                <button id="theme-dark" class="theme-button active" title="Thème sombre">🌑</button>
+                <button id="theme-light" class="theme-button" title="Thème clair">☀️</button>
+                <button id="theme-light-blue" class="theme-button" title="Thème clair bleu">🔆</button>
+                <button id="theme-dark-blue" class="theme-button" title="Thème sombre bleu">🌊</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>Contact</h2>
+                <p>N'hésitez pas à me contacter pour toute question ou proposition de collaboration</p>
+            </div>
+        </section>
+
+        <section class="contact-info">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3>Email</h3>
+                        <p><a href="mailto:contact@monportfolio.com">contact@monportfolio.com</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>GitHub</h3>
+                        <p><a href="https://github.com/monpseudo" target="_blank">github.com/monpseudo</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>LinkedIn</h3>
+                        <p><a href="https://linkedin.com/in/monpseudo" target="_blank">linkedin.com/in/monpseudo</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Formulaire de contact</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 - Mon Portfolio de Développeur</p>
+        </div>
+    </footer>
+</body>
+</html>
