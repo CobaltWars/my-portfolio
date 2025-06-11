@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Développeur</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Bouton hamburger pour mobile -->
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Barre latérale -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="profile-section">
+                <div class="profile-avatar">
+                    <span>👨‍💻</span>
+                </div>
+                <div class="profile-info">
+                    <h2>Mon Portfolio</h2>
+                    <p>Développeur passionné</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sidebar-nav">
+            <button class="nav-item active" data-page="home">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Accueil</span>
+            </button>
+            <button class="nav-item" data-page="games">
+                <span class="nav-icon">🎮</span>
+                <span class="nav-text">Jeux</span>
+            </button>
+            <button class="nav-item" data-page="software">
+                <span class="nav-icon">💻</span>
+                <span class="nav-text">Logiciels</span>
+            </button>
+            <button class="nav-item" data-page="about">
+                <span class="nav-icon">👤</span>
+                <span class="nav-text">À propos</span>
+            </button>
+            <button class="nav-item" data-page="contact">
+                <span class="nav-icon">📧</span>
+                <span class="nav-text">Contact</span>
+            </button>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="social-links">
+                <a href="#" class="social-link" title="GitHub">
+                    <span>🔗</span>
+                </a>
+                <a href="#" class="social-link" title="LinkedIn">
+                    <span>💼</span>
+                </a>
+                <a href="#" class="social-link" title="Twitter">
+                    <span>🐦</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Overlay pour mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Contenu principal -->
+    <main class="main-content">
+        <!-- Page d'accueil -->
+        <div id="home" class="page active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Bienvenue sur mon <span class="gradient-text">Portfolio</span>
+                    </h1>
+                    <p class="hero-description">
+                        Je suis un développeur passionné par la création d'applications innovantes et de jeux captivants. 
+                        Découvrez mes projets et mes compétences à travers cette vitrine interactive.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Projets</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Années d'expérience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Satisfaction client</span>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <button class="btn-primary" data-page="games">Voir mes jeux</button>
+                        <button class="btn-secondary" data-page="software">Mes logiciels</button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-elements">
+                        <div class="floating-element">🚀</div>
+                        <div class="floating-element">⚡</div>
+                        <div class="floating-element">💡</div>
+                        <div class="floating-element">🎯</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page des jeux -->
+        <div id="games" class="page">
+            <div class="page-header">
+                <h1>Mes Jeux</h1>
+                <p>Découvrez mes créations ludiques et interactives</p>
+            </div>
+            <div class="projects-grid" id="games-grid">
+                <!-- Les jeux seront ajoutés ici par JavaScript -->
+            </div>
+        </div>
+
+        <!-- Page des logiciels -->
+        <div id="software" class="page">
+            <div class="page-header">
+                <h1>Mes Logiciels</h1>
+                <p>Applications et outils que j'ai développés</p>
+            </div>
+            <div class="projects-grid" id="software-grid">
+                <!-- Les logiciels seront ajoutés ici par JavaScript -->
+            </div>
+        </div>
+
+        <!-- Page À propos -->
+        <div id="about" class="page">
+            <div class="page-header">
+                <h1>À propos de moi</h1>
+                <p>Découvrez mon parcours et mes compétences</p>
+            </div>
+            <div class="about-content">
+                <div class="about-section">
+                    <h2>Mon parcours</h2>
+                    <p>Développeur passionné depuis plus de 3 ans, je me spécialise dans la création d'applications web modernes et de jeux interactifs. Mon expertise couvre un large éventail de technologies, du frontend au backend.</p>
+                </div>
+                <div class="skills-section">
+                    <h2>Mes compétences</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span class="skill-icon">🌐</span>
+                            <h3>Développement Web</h3>
+                            <p>HTML, CSS, JavaScript, React, Vue.js</p>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">🎮</span>
+                            <h3>Développement de Jeux</h3>
+                            <p>Unity, C#, Game Design</p>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">⚙️</span>
+                            <h3>Backend</h3>
+                            <p>Node.js, Python, Bases de données</p>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">🎨</span>
+                            <h3>UI/UX Design</h3>
+                            <p>Figma, Adobe XD, Design System</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Contact -->
+        <div id="contact" class="page">
+            <div class="page-header">
+                <h1>Me contacter</h1>
+                <p>N'hésitez pas à me faire part de vos projets</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <h3>Email</h3>
+                            <p>contact@monportfolio.dev</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <div>
+                            <h3>Téléphone</h3>
+                            <p>+33 1 23 45 67 89</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <h3>Localisation</h3>
+                            <p>Paris, France</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal plein écran -->
+    <div id="projectModal" class="modal-fullscreen" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h1 id="modalTitle"></h1>
+                <button class="modal-close" aria-label="Fermer la modale">
+                    <span>✕</span>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-content-grid">
+                    <div class="modal-images-section">
+                        <div class="main-image-container">
+                            <img id="mainModalImage" src="" alt="" class="main-modal-image">
+                        </div>
+                        <div class="thumbnail-gallery" id="modalThumbnails">
+                            <!-- Les miniatures seront ajoutées ici -->
+                        </div>
+                    </div>
+                    
+                    <div class="modal-info-section">
+                        <div class="modal-description">
+                            <h2>Description</h2>
+                            <p id="modalDescription"></p>
+                        </div>
+                        
+                        <div class="modal-features">
+                            <h2>Caractéristiques</h2>
+                            <ul id="modalFeatures">
+                                <!-- Les caractéristiques seront ajoutées ici -->
+                            </ul>
+                        </div>
+                        
+                        <div class="modal-actions">
+                            <button id="downloadBtn" class="btn-download">
+                                <span>⬇️</span>
+                                Télécharger
+                            </button>
+                            <button class="btn-demo">
+                                <span>🎮</span>
+                                Démo en ligne
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

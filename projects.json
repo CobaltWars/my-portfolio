@@ -1,0 +1,127 @@
+{
+  "games": [
+    {
+      "id": "game1",
+      "title": "Adventure Quest",
+      "shortDescription": "Un jeu d'aventure captivant avec des énigmes et des combats épiques.",
+      "fullDescription": "Adventure Quest est un jeu d'aventure immersif qui vous plonge dans un monde fantastique. Explorez des donjons mystérieux, résolvez des énigmes complexes et affrontez des créatures légendaires. Le jeu propose un système de progression complet avec des compétences à débloquer et des équipements à collecter.",
+      "image": "https://via.placeholder.com/350x200/3b82f6/ffffff?text=Adventure+Quest",
+      "images": [
+        "https://via.placeholder.com/800x600/3b82f6/ffffff?text=Adventure+Quest+Screenshot+1",
+        "https://via.placeholder.com/800x600/1d4ed8/ffffff?text=Adventure+Quest+Screenshot+2",
+        "https://via.placeholder.com/800x600/60a5fa/ffffff?text=Adventure+Quest+Screenshot+3"
+      ],
+      "features": [
+        "Monde ouvert explorable",
+        "Système de combat tactique",
+        "Plus de 50 quêtes principales",
+        "Crafting et amélioration d'équipements",
+        "Mode multijoueur coopératif"
+      ],
+      "downloadUrl": "#"
+    },
+    {
+      "id": "game2",
+      "title": "Space Shooter",
+      "shortDescription": "Jeu de tir spatial avec des vaisseaux personnalisables et des niveaux intenses.",
+      "fullDescription": "Space Shooter vous propulse dans l'espace pour des combats intergalactiques épiques. Pilotez votre vaisseau spatial, améliorez vos armes et affrontez des vagues d'ennemis de plus en plus difficiles. Le jeu propose plusieurs modes de jeu et un système de classement en ligne.",
+      "image": "https://via.placeholder.com/350x200/10b981/ffffff?text=Space+Shooter",
+      "images": [
+        "https://via.placeholder.com/800x600/10b981/ffffff?text=Space+Shooter+Screenshot+1",
+        "https://via.placeholder.com/800x600/047857/ffffff?text=Space+Shooter+Screenshot+2",
+        "https://via.placeholder.com/800x600/34d399/ffffff?text=Space+Shooter+Screenshot+3"
+      ],
+      "features": [
+        "Vaisseaux personnalisables",
+        "Système d'armes évolutif",
+        "Classements en ligne",
+        "Mode survie infini",
+        "Graphismes 3D immersifs"
+      ],
+      "downloadUrl": "#"
+    },
+    {
+      "id": "game3",
+      "title": "Puzzle Master",
+      "shortDescription": "Collection de puzzles logiques pour stimuler votre esprit.",
+      "fullDescription": "Puzzle Master est une collection de plus de 100 puzzles logiques conçus pour défier votre intellect. Des puzzles simples aux casse-têtes les plus complexes, ce jeu offre des heures de divertissement éducatif. Inclut des indices, un système de progression et des défis quotidiens.",
+      "image": "https://via.placeholder.com/350x200/f59e0b/ffffff?text=Puzzle+Master",
+      "images": [
+        "https://via.placeholder.com/800x600/f59e0b/ffffff?text=Puzzle+Master+Screenshot+1",
+        "https://via.placeholder.com/800x600/d97706/ffffff?text=Puzzle+Master+Screenshot+2",
+        "https://via.placeholder.com/800x600/fbbf24/ffffff?text=Puzzle+Master+Screenshot+3"
+      ],
+      "features": [
+        "Plus de 100 puzzles uniques",
+        "Système d'indices intelligent",
+        "Défis quotidiens",
+        "Statistiques détaillées",
+        "Mode hors ligne disponible"
+      ],
+      "downloadUrl": "#"
+    }
+  ],
+  "software": [
+    {
+      "id": "soft1",
+      "title": "TaskMaster Pro",
+      "shortDescription": "Gestionnaire de tâches avancé avec synchronisation cloud.",
+      "fullDescription": "TaskMaster Pro est un gestionnaire de tâches complet qui vous aide à organiser votre vie professionnelle et personnelle. Fonctionnalités : synchronisation multi-appareils, rappels intelligents, collaboration en équipe, rapports de productivité et intégration avec les calendriers populaires.",
+      "image": "https://via.placeholder.com/350x200/8b5cf6/ffffff?text=TaskMaster+Pro",
+      "images": [
+        "https://via.placeholder.com/800x600/8b5cf6/ffffff?text=TaskMaster+Pro+Screenshot+1",
+        "https://via.placeholder.com/800x600/7c3aed/ffffff?text=TaskMaster+Pro+Screenshot+2",
+        "https://via.placeholder.com/800x600/a78bfa/ffffff?text=TaskMaster+Pro+Screenshot+3"
+      ],
+      "features": [
+        "Synchronisation cloud automatique",
+        "Collaboration en équipe",
+        "Rappels intelligents",
+        "Rapports de productivité",
+        "Intégration calendrier"
+      ],
+      "downloadUrl": "#"
+    },
+    {
+      "id": "soft2",
+      "title": "CodeEditor+",
+      "shortDescription": "Éditeur de code léger avec coloration syntaxique avancée.",
+      "fullDescription": "CodeEditor+ est un éditeur de code moderne et léger conçu pour les développeurs. Il prend en charge plus de 50 langages de programmation avec une coloration syntaxique avancée, l'auto-complétion intelligente, le debugging intégré et les plugins personnalisables.",
+      "image": "https://via.placeholder.com/350x200/ef4444/ffffff?text=CodeEditor%2B",
+      "images": [
+        "https://via.placeholder.com/800x600/ef4444/ffffff?text=CodeEditor+Screenshot+1",
+        "https://via.placeholder.com/800x600/dc2626/ffffff?text=CodeEditor+Screenshot+2",
+        "https://via.placeholder.com/800x600/f87171/ffffff?text=CodeEditor+Screenshot+3"
+      ],
+      "features": [
+        "Support de 50+ langages",
+        "Auto-complétion intelligente",
+        "Debugging intégré",
+        "Plugins personnalisables",
+        "Interface moderne et rapide"
+      ],
+      "downloadUrl": "#"
+    },
+    {
+      "id": "soft3",
+      "title": "PhotoEnhancer",
+      "shortDescription": "Outil de retouche photo avec IA pour améliorer vos images.",
+      "fullDescription": "PhotoEnhancer utilise l'intelligence artificielle pour améliorer automatiquement vos photos. Correction de l'exposition, réduction du bruit, amélioration des couleurs et bien plus. Interface simple et intuitive, traitement par lots et formats d'export multiples.",
+      "image": "https://via.placeholder.com/350x200/06b6d4/ffffff?text=PhotoEnhancer",
+      "images": [
+        "https://via.placeholder.com/800x600/06b6d4/ffffff?text=PhotoEnhancer+Screenshot+1",
+        "https://via.placeholder.com/800x600/0891b2/ffffff?text=PhotoEnhancer+Screenshot+2",
+        "https://via.placeholder.com/800x600/22d3ee/ffffff?text=PhotoEnhancer+Screenshot+3"
+      ],
+      "features": [
+        "IA pour amélioration automatique",
+        "Traitement par lots",
+        "Formats d'export multiples",
+        "Interface intuitive",
+        "Préservation de la qualité"
+      ],
+      "downloadUrl": "#"
+    }
+  ]
+}
+
