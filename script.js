@@ -231,15 +231,30 @@ function openModal(projectId) {
         });
     }
     
-    // Bouton de téléchargement
-    const downloadBtn = document.getElementById('downloadBtn');
-    downloadBtn.onclick = () => {
-        if (project.downloadUrl && project.downloadUrl !== '#') {
-            window.open(project.downloadUrl, '_blank');
-        } else {
-            showNotification('Le téléchargement sera bientôt disponible !', 'info');
-        }
-    };
+    // Boutons d'action
+    const modalActions = document.querySelector('.modal-actions');
+    modalActions.innerHTML = ''; // Vider les boutons existants
+    
+    if (project.buttons && project.buttons.length > 0) {
+        project.buttons.forEach(buttonData => {
+            const button = document.createElement('button');
+            button.className = buttonData.type === 'primary' ? 'btn-download' : 'btn-demo';
+            button.innerHTML = `
+                <span>${buttonData.icon}</span>
+                ${buttonData.text}
+            `;
+            
+            button.addEventListener('click', () => {
+                if (buttonData.url && buttonData.url !== '#') {
+                    window.open(buttonData.url, '_blank');
+                } else {
+                    showNotification(`Action "${buttonData.text}" sera bientôt disponible !`, 'info');
+                }
+            });
+            
+            modalActions.appendChild(button);
+        });
+    }
     
     // Afficher la modale
     const modal = document.getElementById('projectModal');

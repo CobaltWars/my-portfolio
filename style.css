@@ -772,11 +772,12 @@ body {
 .modal-actions {
     display: flex;
     gap: 16px;
+    flex-wrap: wrap;
 }
 
-.btn-download,
-.btn-demo {
+.btn-download, .btn-demo {
     flex: 1;
+    min-width: 150px;
     padding: 16px 24px;
     border-radius: 12px;
     font-weight: 600;
