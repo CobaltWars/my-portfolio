@@ -347,13 +347,22 @@ function initScrollNavigation() {
         const now = Date.now();
         if (now - lastScrollTime < scrollCooldown) return;
         
-        const delta = event.deltaY || event.detail || event.wheelDelta;
+        const currentPage = document.querySelector('.page.active');
+        const isAtBottom = currentPage.scrollHeight - currentPage.scrollTop <= currentPage.clientHeight + 50;
         
-        if (Math.abs(delta) < scrollThreshold) return;
+        // Si on scroll vers le bas mais qu'on n'est pas en bas, ne pas changer de page
+        if ((event.deltaY > 0 || event.detail > 0 || event.wheelDelta < 0) && !isAtBottom) {
+            return;
+        }
+        
+        // Si on scroll vers le haut mais qu'on n'est pas en haut, ne pas changer de page
+        if ((event.deltaY < 0 || event.detail < 0 || event.wheelDelta > 0) && currentPage.scrollTop > 50) {
+            return;
+        }
         
         lastScrollTime = now;
         
-        if (delta > 0) {
+        if (delta > 0 || event.deltaY > 0 || event.detail > 0 || event.wheelDelta < 0) {
             // Scroll vers le bas - page suivante
             navigateToNextPage();
         } else {
@@ -413,7 +422,7 @@ function loadProjects(type) {
     
     container.innerHTML = '';
     
-    if (projectsData[type]) {
+    if (projectsData[type] && projectsData[type].length > 0) {
         // Initialiser les projets filtrés
         filteredProjects[type] = projectsData[type];
         
@@ -422,16 +431,15 @@ function loadProjects(type) {
         
         projectsToShow.forEach((project, index) => {
             const projectCard = createProjectCard(project);
-            // Ajouter une animation avec délai
             setTimeout(() => {
                 projectCard.classList.add('fade-in');
                 container.appendChild(projectCard);
             }, index * 100);
         });
         
-        // Afficher le bouton "voir plus" s'il y a plus de projets
-        if (filteredProjects[type].length > displayedProjects[type]) {
-            showMoreSection.style.display = 'block';
+        // Toujours afficher le bouton "voir plus" si plus de projets que PROJECTS_PER_PAGE
+        if (projectsData[type].length > PROJECTS_PER_PAGE) {
+            showMoreSection.style.display = 'flex'; // Changé de 'block' à 'flex' pour correspondre au CSS
         } else {
             showMoreSection.style.display = 'none';
         }
