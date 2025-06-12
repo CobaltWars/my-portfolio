@@ -1,6 +1,18 @@
 // Variables globales
 let projectsData = {};
 let currentProject = null;
+let isScrolling = false;
+let currentPageIndex = 0;
+const pages = ['home', 'games', 'software', 'about', 'contact'];
+const PROJECTS_PER_PAGE = 3; // Nombre de projets à afficher initialement
+let displayedProjects = {
+    games: PROJECTS_PER_PAGE,
+    software: PROJECTS_PER_PAGE
+};
+let filteredProjects = {
+    games: [],
+    software: []
+};
 
 // Charger les données depuis le fichier JSON
 async function loadProjectsData() {
@@ -35,10 +47,10 @@ async function loadProjectsData() {
             games: [
                 {
                     id: 'game1',
-                    title: 'Adventure Quest (Fallback)',
+                    title: 'Adventure Quest',
                     shortDescription: 'Un jeu d\'aventure captivant avec des énigmes et des combats épiques.',
                     fullDescription: 'Adventure Quest est un jeu d\'aventure immersif qui vous plonge dans un monde fantastique. Explorez des donjons mystérieux, résolvez des énigmes complexes et affrontez des créatures légendaires. Le jeu propose un système de progression complet avec des compétences à débloquer et des équipements à collecter.',
-                    image: 'https://via.placeholder.com/350x200/3b82f6/ffffff?text=Adventure+Quest+Fallback',
+                    image: 'https://via.placeholder.com/350x200/3b82f6/ffffff?text=Adventure+Quest',
                     images: [
                         'https://via.placeholder.com/800x600/3b82f6/ffffff?text=Adventure+Quest+Screenshot+1',
                         'https://via.placeholder.com/800x600/1d4ed8/ffffff?text=Adventure+Quest+Screenshot+2',
@@ -52,15 +64,88 @@ async function loadProjectsData() {
                         'Mode multijoueur coopératif'
                     ],
                     downloadUrl: '#'
+                },
+                {
+                    id: 'game2',
+                    title: 'Space Explorer',
+                    shortDescription: 'Explorez l\'espace infini dans ce jeu de simulation spatiale.',
+                    fullDescription: 'Space Explorer vous permet de commander votre propre vaisseau spatial et d\'explorer une galaxie procédurale infinie. Découvrez de nouvelles planètes, commercez avec des aliens, et construisez votre empire galactique.',
+                    image: 'https://via.placeholder.com/350x200/8b5cf6/ffffff?text=Space+Explorer',
+                    images: [
+                        'https://via.placeholder.com/800x600/8b5cf6/ffffff?text=Space+Explorer+Screenshot+1',
+                        'https://via.placeholder.com/800x600/7c3aed/ffffff?text=Space+Explorer+Screenshot+2'
+                    ],
+                    features: [
+                        'Galaxie procédurale infinie',
+                        'Commerce intergalactique',
+                        'Construction de vaisseaux',
+                        'Exploration de planètes',
+                        'Diplomatie alien'
+                    ],
+                    downloadUrl: '#'
+                },
+                {
+                    id: 'game3',
+                    title: 'Puzzle Master',
+                    shortDescription: 'Des énigmes complexes qui défieront votre logique.',
+                    fullDescription: 'Puzzle Master propose plus de 200 énigmes uniques qui testeront votre capacité de réflexion. Des puzzles simples aux casse-têtes les plus complexes, ce jeu offre des heures de divertissement intellectuel.',
+                    image: 'https://via.placeholder.com/350x200/10b981/ffffff?text=Puzzle+Master',
+                    images: [
+                        'https://via.placeholder.com/800x600/10b981/ffffff?text=Puzzle+Master+Screenshot+1'
+                    ],
+                    features: [
+                        'Plus de 200 énigmes',
+                        'Difficulté progressive',
+                        'Système d\'indices',
+                        'Mode chronométré',
+                        'Classements en ligne'
+                    ],
+                    downloadUrl: '#'
+                },
+                {
+                    id: 'game4',
+                    title: 'Racing Thunder',
+                    shortDescription: 'Course automobile arcade avec des véhicules personnalisables.',
+                    fullDescription: 'Racing Thunder est un jeu de course arcade où vous pouvez personnaliser vos véhicules et affronter des adversaires sur des circuits spectaculaires. Débloquez de nouvelles voitures et améliorez leurs performances.',
+                    image: 'https://via.placeholder.com/350x200/f59e0b/ffffff?text=Racing+Thunder',
+                    images: [
+                        'https://via.placeholder.com/800x600/f59e0b/ffffff?text=Racing+Thunder+Screenshot+1'
+                    ],
+                    features: [
+                        'Véhicules personnalisables',
+                        'Circuits spectaculaires',
+                        'Mode multijoueur',
+                        'Système d\'amélioration',
+                        'Physique réaliste'
+                    ],
+                    downloadUrl: '#'
+                },
+                {
+                    id: 'game5',
+                    title: 'Fantasy RPG',
+                    shortDescription: 'Un RPG classique avec un système de magie innovant.',
+                    fullDescription: 'Fantasy RPG vous transporte dans un monde médiéval fantastique où la magie règne en maître. Créez votre personnage, maîtrisez des sorts puissants et partez à l\'aventure dans un monde ouvert rempli de mystères.',
+                    image: 'https://via.placeholder.com/350x200/ef4444/ffffff?text=Fantasy+RPG',
+                    images: [
+                        'https://via.placeholder.com/800x600/ef4444/ffffff?text=Fantasy+RPG+Screenshot+1'
+                    ],
+                    features: [
+                        'Système de magie innovant',
+                        'Monde ouvert',
+                        'Création de personnage',
+                        'Quêtes épiques',
+                        'Guildes de joueurs'
+                    ],
+                    downloadUrl: '#'
                 }
             ],
             software: [
                 {
                     id: 'soft1',
-                    title: 'TaskMaster Pro (Fallback)',
+                    title: 'TaskMaster Pro',
                     shortDescription: 'Gestionnaire de tâches avancé avec synchronisation cloud.',
                     fullDescription: 'TaskMaster Pro est un gestionnaire de tâches complet qui vous aide à organiser votre vie professionnelle et personnelle. Fonctionnalités : synchronisation multi-appareils, rappels intelligents, collaboration en équipe, rapports de productivité et intégration avec les calendriers populaires.',
-                    image: 'https://via.placeholder.com/350x200/8b5cf6/ffffff?text=TaskMaster+Pro+Fallback',
+                    image: 'https://via.placeholder.com/350x200/8b5cf6/ffffff?text=TaskMaster+Pro',
                     images: [
                         'https://via.placeholder.com/800x600/8b5cf6/ffffff?text=TaskMaster+Pro+Screenshot+1',
                         'https://via.placeholder.com/800x600/7c3aed/ffffff?text=TaskMaster+Pro+Screenshot+2',
@@ -72,6 +157,60 @@ async function loadProjectsData() {
                         'Rappels intelligents',
                         'Rapports de productivité',
                         'Intégration calendrier'
+                    ],
+                    downloadUrl: '#'
+                },
+                {
+                    id: 'soft2',
+                    title: 'CodeEditor Plus',
+                    shortDescription: 'Éditeur de code moderne avec intelligence artificielle.',
+                    fullDescription: 'CodeEditor Plus révolutionne l\'expérience de développement avec son assistant IA intégré. Autocomplétion intelligente, détection d\'erreurs en temps réel, et suggestions d\'optimisation pour plus de 50 langages de programmation.',
+                    image: 'https://via.placeholder.com/350x200/3b82f6/ffffff?text=CodeEditor+Plus',
+                    images: [
+                        'https://via.placeholder.com/800x600/3b82f6/ffffff?text=CodeEditor+Plus+Screenshot+1'
+                    ],
+                    features: [
+                        'Assistant IA intégré',
+                        'Support de 50+ langages',
+                        'Détection d\'erreurs temps réel',
+                        'Thèmes personnalisables',
+                        'Extensions communautaires'
+                    ],
+                    downloadUrl: '#'
+                },
+                {
+                    id: 'soft3',
+                    title: 'PhotoStudio',
+                    shortDescription: 'Suite complète d\'édition photo professionnelle.',
+                    fullDescription: 'PhotoStudio offre tous les outils nécessaires pour l\'édition photo professionnelle. Retouche avancée, filtres artistiques, gestion des calques, et export optimisé pour tous les formats et plateformes.',
+                    image: 'https://via.placeholder.com/350x200/10b981/ffffff?text=PhotoStudio',
+                    images: [
+                        'https://via.placeholder.com/800x600/10b981/ffffff?text=PhotoStudio+Screenshot+1'
+                    ],
+                    features: [
+                        'Retouche professionnelle',
+                        'Filtres artistiques',
+                        'Gestion des calques',
+                        'Export multi-format',
+                        'Interface intuitive'
+                    ],
+                    downloadUrl: '#'
+                },
+                {
+                    id: 'soft4',
+                    title: 'DataViz Pro',
+                    shortDescription: 'Outil de visualisation de données interactives.',
+                    fullDescription: 'DataViz Pro transforme vos données en visualisations interactives et engageantes. Créez des graphiques dynamiques, des tableaux de bord personnalisés et des rapports automatisés pour vos analyses business.',
+                    image: 'https://via.placeholder.com/350x200/f59e0b/ffffff?text=DataViz+Pro',
+                    images: [
+                        'https://via.placeholder.com/800x600/f59e0b/ffffff?text=DataViz+Pro+Screenshot+1'
+                    ],
+                    features: [
+                        'Graphiques interactifs',
+                        'Tableaux de bord',
+                        'Rapports automatisés',
+                        'Import multi-sources',
+                        'Partage collaboratif'
                     ],
                     downloadUrl: '#'
                 }
@@ -114,23 +253,68 @@ function initSidebar() {
     });
 }
 
-// Navigation entre les pages
-function showPage(pageId) {
-    // Masquer toutes les pages
-    document.querySelectorAll('.page').forEach(page => {
-        page.classList.remove('active');
+// Navigation entre les pages avec animation slide
+function showPage(pageId, direction = 'next') {
+    if (isScrolling) return;
+    
+    isScrolling = true;
+    
+    const currentPage = document.querySelector('.page.active');
+    const targetPage = document.getElementById(pageId);
+    
+    if (!targetPage || currentPage === targetPage) {
+        isScrolling = false;
+        return;
+    }
+    
+    // Mettre à jour l'index de la page courante
+    currentPageIndex = pages.indexOf(pageId);
+    
+    // Préparer l'animation
+    targetPage.style.display = 'block';
+    targetPage.classList.add('page-entering');
+    
+    if (direction === 'next') {
+        targetPage.style.transform = 'translateY(100vh)';
+        currentPage.style.transform = 'translateY(0)';
+    } else {
+        targetPage.style.transform = 'translateY(-100vh)';
+        currentPage.style.transform = 'translateY(0)';
+    }
+    
+    // Forcer le reflow
+    targetPage.offsetHeight;
+    
+    // Démarrer l'animation
+    requestAnimationFrame(() => {
+        targetPage.style.transform = 'translateY(0)';
+        
+        if (direction === 'next') {
+            currentPage.style.transform = 'translateY(-100vh)';
+        } else {
+            currentPage.style.transform = 'translateY(100vh)';
+        }
+        
+        // Nettoyer après l'animation
+        setTimeout(() => {
+            // Masquer l'ancienne page
+            currentPage.classList.remove('active');
+            currentPage.style.display = 'none';
+            currentPage.style.transform = '';
+            
+            // Afficher la nouvelle page
+            targetPage.classList.add('active');
+            targetPage.classList.remove('page-entering');
+            targetPage.style.transform = '';
+            
+            isScrolling = false;
+        }, 600);
     });
     
     // Désactiver tous les boutons de navigation
     document.querySelectorAll('.nav-item').forEach(btn => {
         btn.classList.remove('active');
     });
-    
-    // Afficher la page sélectionnée
-    const targetPage = document.getElementById(pageId);
-    if (targetPage) {
-        targetPage.classList.add('active');
-    }
     
     // Activer le bouton correspondant
     const activeBtn = document.querySelector(`.nav-item[data-page="${pageId}"]`);
@@ -151,17 +335,235 @@ function showPage(pageId) {
     }
 }
 
-// Charger les projets
+// Navigation par scroll
+function initScrollNavigation() {
+    let lastScrollTime = 0;
+    const scrollThreshold = 100; // Seuil de scroll minimum
+    const scrollCooldown = 1000; // Temps d'attente entre les navigations
+    
+    function handleScroll(event) {
+        if (isScrolling) return;
+        
+        const now = Date.now();
+        if (now - lastScrollTime < scrollCooldown) return;
+        
+        const delta = event.deltaY || event.detail || event.wheelDelta;
+        
+        if (Math.abs(delta) < scrollThreshold) return;
+        
+        lastScrollTime = now;
+        
+        if (delta > 0) {
+            // Scroll vers le bas - page suivante
+            navigateToNextPage();
+        } else {
+            // Scroll vers le haut - page précédente
+            navigateToPreviousPage();
+        }
+    }
+    
+    // Gestion du scroll avec la molette
+    document.addEventListener('wheel', handleScroll, { passive: true });
+    
+    // Gestion du scroll tactile
+    let touchStartY = 0;
+    let touchEndY = 0;
+    
+    document.addEventListener('touchstart', (e) => {
+        touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+    
+    document.addEventListener('touchend', (e) => {
+        if (isScrolling) return;
+        
+        touchEndY = e.changedTouches[0].screenY;
+        const deltaY = touchStartY - touchEndY;
+        
+        if (Math.abs(deltaY) < 50) return; // Seuil minimum pour le swipe
+        
+        if (deltaY > 0) {
+            // Swipe vers le haut - page suivante
+            navigateToNextPage();
+        } else {
+            // Swipe vers le bas - page précédente
+            navigateToPreviousPage();
+        }
+    }, { passive: true });
+}
+
+function navigateToNextPage() {
+    if (currentPageIndex < pages.length - 1) {
+        const nextPage = pages[currentPageIndex + 1];
+        showPage(nextPage, 'next');
+    }
+}
+
+function navigateToPreviousPage() {
+    if (currentPageIndex > 0) {
+        const previousPage = pages[currentPageIndex - 1];
+        showPage(previousPage, 'prev');
+    }
+}
+
+// Charger les projets avec limitation
 function loadProjects(type) {
     const container = document.getElementById(`${type}-grid`);
+    const showMoreSection = document.getElementById(`${type}-show-more`);
     if (!container) return;
     
     container.innerHTML = '';
     
     if (projectsData[type]) {
-        projectsData[type].forEach(project => {
+        // Initialiser les projets filtrés
+        filteredProjects[type] = projectsData[type];
+        
+        // Afficher seulement les premiers projets
+        const projectsToShow = filteredProjects[type].slice(0, displayedProjects[type]);
+        
+        projectsToShow.forEach((project, index) => {
+            const projectCard = createProjectCard(project);
+            // Ajouter une animation avec délai
+            setTimeout(() => {
+                projectCard.classList.add('fade-in');
+                container.appendChild(projectCard);
+            }, index * 100);
+        });
+        
+        // Afficher le bouton "voir plus" s'il y a plus de projets
+        if (filteredProjects[type].length > displayedProjects[type]) {
+            showMoreSection.style.display = 'block';
+        } else {
+            showMoreSection.style.display = 'none';
+        }
+        
+        // Charger aussi tous les projets dans la section dédiée
+        loadAllProjects(type);
+    }
+}
+
+// Charger tous les projets dans la section dédiée
+function loadAllProjects(type) {
+    const container = document.getElementById(`all-${type}-grid`);
+    if (!container) return;
+    
+    container.innerHTML = '';
+    
+    if (projectsData[type]) {
+        projectsData[type].forEach((project, index) => {
             const projectCard = createProjectCard(project);
             container.appendChild(projectCard);
+        });
+    }
+}
+
+// Afficher plus de projets
+function showMoreProjects(type) {
+    const container = document.getElementById(`${type}-grid`);
+    const showMoreSection = document.getElementById(`${type}-show-more`);
+    
+    if (!projectsData[type]) return;
+    
+    const currentCount = displayedProjects[type];
+    const newCount = Math.min(currentCount + PROJECTS_PER_PAGE, filteredProjects[type].length);
+    
+    // Ajouter les nouveaux projets
+    const newProjects = filteredProjects[type].slice(currentCount, newCount);
+    
+    newProjects.forEach((project, index) => {
+        const projectCard = createProjectCard(project);
+        setTimeout(() => {
+            projectCard.classList.add('fade-in');
+            container.appendChild(projectCard);
+        }, index * 100);
+    });
+    
+    displayedProjects[type] = newCount;
+    
+    // Masquer le bouton si tous les projets sont affichés
+    if (displayedProjects[type] >= filteredProjects[type].length) {
+        showMoreSection.style.display = 'none';
+    }
+}
+
+// Afficher tous les projets (rediriger vers la section dédiée)
+function showAllProjects(type) {
+    const targetPage = `all-${type}`;
+    const currentIndex = pages.indexOf(targetPage);
+    
+    // Ajouter temporairement la page à la liste si elle n'y est pas
+    if (currentIndex === -1) {
+        // Ne pas ajouter à la liste principale pour éviter la navigation par scroll
+        showPage(targetPage, 'next');
+    } else {
+        const direction = currentIndex > currentPageIndex ? 'next' : 'prev';
+        showPage(targetPage, direction);
+    }
+}
+
+// Retourner à la section principale
+function goBackToSection(type) {
+    const direction = 'prev';
+    showPage(type, direction);
+}
+
+// Rechercher des projets
+function searchProjects(type) {
+    const searchInput = document.getElementById(`${type}-search`);
+    const query = searchInput.value.toLowerCase().trim();
+    const container = document.getElementById(`all-${type}-grid`);
+    
+    if (!container || !projectsData[type]) return;
+    
+    container.innerHTML = '';
+    
+    let results = projectsData[type];
+    
+    if (query) {
+        results = projectsData[type].filter(project => 
+            project.title.toLowerCase().includes(query) ||
+            project.shortDescription.toLowerCase().includes(query) ||
+            project.features.some(feature => feature.toLowerCase().includes(query))
+        );
+    }
+    
+    if (results.length === 0) {
+        container.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-secondary);">
+                <h3>Aucun résultat trouvé</h3>
+                <p>Essayez avec d'autres mots-clés</p>
+            </div>
+        `;
+    } else {
+        results.forEach((project, index) => {
+            const projectCard = createProjectCard(project);
+            setTimeout(() => {
+                projectCard.classList.add('fade-in');
+                container.appendChild(projectCard);
+            }, index * 50);
+        });
+    }
+}
+
+// Ajouter la recherche en temps réel
+function initSearch() {
+    const gamesSearch = document.getElementById('games-search');
+    const softwareSearch = document.getElementById('software-search');
+    
+    if (gamesSearch) {
+        gamesSearch.addEventListener('input', () => searchProjects('games'));
+        gamesSearch.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchProjects('games');
+            }
+        });
+    }
+    
+    if (softwareSearch) {
+        softwareSearch.addEventListener('input', () => searchProjects('software'));
+        softwareSearch.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchProjects('software');
+            }
         });
     }
 }
@@ -387,11 +789,14 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Initialiser la barre latérale
     initSidebar();
     
+    // Initialiser la navigation par scroll
+    initScrollNavigation();
+    
     // Initialiser le formulaire de contact
     initContactForm();
     
-    // Initialiser les animations
-    initScrollAnimations();
+    // Initialiser la recherche
+    initSearch();
     
     // Navigation
     document.addEventListener('click', (event) => {
@@ -400,7 +805,9 @@ document.addEventListener('DOMContentLoaded', async function() {
             const navItem = event.target.classList.contains('nav-item') ? event.target : event.target.closest('.nav-item');
             const pageId = navItem.dataset.page;
             if (pageId) {
-                showPage(pageId);
+                const currentIndex = pages.indexOf(pageId);
+                const direction = currentIndex > currentPageIndex ? 'next' : 'prev';
+                showPage(pageId, direction);
             }
         }
         
@@ -408,7 +815,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (event.target.classList.contains('btn-primary') || event.target.classList.contains('btn-secondary')) {
             const pageId = event.target.dataset.page;
             if (pageId) {
-                showPage(pageId);
+                const currentIndex = pages.indexOf(pageId);
+                const direction = currentIndex > currentPageIndex ? 'next' : 'prev';
+                showPage(pageId, direction);
                 return;
             }
         }
@@ -441,11 +850,18 @@ document.addEventListener('DOMContentLoaded', async function() {
         
         // Navigation avec les touches numériques
         if (event.key >= '1' && event.key <= '5') {
-            const pages = ['home', 'games', 'software', 'about', 'contact'];
             const pageIndex = parseInt(event.key) - 1;
             if (pages[pageIndex]) {
-                showPage(pages[pageIndex]);
+                const direction = pageIndex > currentPageIndex ? 'next' : 'prev';
+                showPage(pages[pageIndex], direction);
             }
+        }
+        
+        // Navigation avec les flèches
+        if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+            navigateToNextPage();
+        } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+            navigateToPreviousPage();
         }
     });
     

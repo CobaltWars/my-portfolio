@@ -122,6 +122,16 @@
             <div class="projects-grid" id="games-grid">
                 <!-- Les jeux seront ajoutés ici par JavaScript -->
             </div>
+            <div class="show-more-section" id="games-show-more" style="display: none;">
+                <button class="btn-show-more" onclick="showMoreProjects('games')">
+                    <span>👀</span>
+                    Voir plus de jeux
+                </button>
+                <button class="btn-show-all" onclick="showAllProjects('games')">
+                    <span>🎮</span>
+                    Afficher tous les jeux
+                </button>
+            </div>
         </div>
 
         <!-- Page des logiciels -->
@@ -132,6 +142,62 @@
             </div>
             <div class="projects-grid" id="software-grid">
                 <!-- Les logiciels seront ajoutés ici par JavaScript -->
+            </div>
+            <div class="show-more-section" id="software-show-more" style="display: none;">
+                <button class="btn-show-more" onclick="showMoreProjects('software')">
+                    <span>👀</span>
+                    Voir plus de logiciels
+                </button>
+                <button class="btn-show-all" onclick="showAllProjects('software')">
+                    <span>💻</span>
+                    Afficher tous les logiciels
+                </button>
+            </div>
+        </div>
+
+        <!-- Section dédiée - Tous les jeux -->
+        <div id="all-games" class="page">
+            <div class="page-header">
+                <h1>Tous mes Jeux</h1>
+                <p>Collection complète de mes créations ludiques</p>
+                <div class="search-container">
+                    <input type="text" id="games-search" placeholder="Rechercher un jeu..." class="search-input">
+                    <button class="search-btn" onclick="searchProjects('games')">
+                        <span>🔍</span>
+                    </button>
+                </div>
+            </div>
+            <div class="projects-grid" id="all-games-grid">
+                <!-- Tous les jeux seront affichés ici -->
+            </div>
+            <div class="back-section">
+                <button class="btn-back" onclick="goBackToSection('games')">
+                    <span>←</span>
+                    Retour aux jeux
+                </button>
+            </div>
+        </div>
+
+        <!-- Section dédiée - Tous les logiciels -->
+        <div id="all-software" class="page">
+            <div class="page-header">
+                <h1>Tous mes Logiciels</h1>
+                <p>Collection complète de mes applications et outils</p>
+                <div class="search-container">
+                    <input type="text" id="software-search" placeholder="Rechercher un logiciel..." class="search-input">
+                    <button class="search-btn" onclick="searchProjects('software')">
+                        <span>🔍</span>
+                    </button>
+                </div>
+            </div>
+            <div class="projects-grid" id="all-software-grid">
+                <!-- Tous les logiciels seront affichés ici -->
+            </div>
+            <div class="back-section">
+                <button class="btn-back" onclick="goBackToSection('software')">
+                    <span>←</span>
+                    Retour aux logiciels
+                </button>
             </div>
         </div>
 

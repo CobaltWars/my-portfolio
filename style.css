@@ -217,17 +217,30 @@ body {
     margin-left: var(--sidebar-width);
     min-height: 100vh;
     transition: var(--transition-smooth);
+    overflow: hidden; /* Empêcher le scroll normal */
 }
 
 /* Pages */
 .page {
     display: none;
     padding: 40px;
-    animation: fadeInUp 0.6s ease-out;
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .page.active {
     display: block;
+}
+
+.page.page-entering {
+    position: fixed;
+    top: 0;
+    left: var(--sidebar-width);
+    right: 0;
+    bottom: 0;
+    z-index: 10;
 }
 
 @keyframes fadeInUp {
@@ -891,6 +904,165 @@ body {
     
     .modal-actions {
         flex-direction: column;
+    }
+}
+
+
+/* Responsive pour les animations de page */
+@media (max-width: 768px) {
+    .page.page-entering {
+        left: 0;
+    }
+}
+
+
+/* Styles pour les sections "voir plus" */
+.show-more-section {
+    text-align: center;
+    margin-top: 40px;
+    padding: 32px;
+    background: var(--background-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-show-more, .btn-show-all {
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 180px;
+    justify-content: center;
+}
+
+.btn-show-more {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: white;
+}
+
+.btn-show-more:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-show-all {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-hover);
+}
+
+.btn-show-all:hover {
+    background: var(--background-hover);
+    border-color: var(--primary-color);
+}
+
+/* Styles pour la barre de recherche */
+.search-container {
+    display: flex;
+    gap: 12px;
+    max-width: 400px;
+    margin: 24px auto 0;
+}
+
+.search-input {
+    flex: 1;
+    padding: 12px 16px;
+    background: var(--background-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: var(--transition-smooth);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-btn {
+    padding: 12px 16px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    font-size: 1.125rem;
+}
+
+.search-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+/* Styles pour le bouton retour */
+.back-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-back {
+    padding: 12px 24px;
+    background: var(--background-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-back:hover {
+    background: var(--background-hover);
+    color: var(--text-primary);
+    border-color: var(--primary-color);
+}
+
+/* Animation pour les projets qui apparaissent */
+.project-card.fade-in {
+    animation: fadeInScale 0.5s ease-out;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Responsive pour les nouvelles sections */
+@media (max-width: 768px) {
+    .show-more-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-show-more, .btn-show-all {
+        min-width: 200px;
+    }
+    
+    .search-container {
+        flex-direction: column;
+        max-width: 100%;
     }
 }
 
