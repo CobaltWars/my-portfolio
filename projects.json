@@ -17,7 +17,7 @@
       "buttons": [
         {
           "text": "Visitez la page itch",
-          "icon": "https://static.itch.io/images/itchio-textless-black.svg",
+          "icon": "⬇️",
           "url": "https://cobaltwars.itch.io/towers-escape-game",
           "type": "primary"
         }
