@@ -222,37 +222,6 @@ async function loadProjectsData() {
     }
 }
 
-// Gestion de la barre latérale
-function initSidebar() {
-    const hamburger = document.getElementById('hamburger');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('sidebarOverlay');
-    
-    function toggleSidebar() {
-        hamburger.classList.toggle('active');
-        sidebar.classList.toggle('active');
-        overlay.classList.toggle('active');
-        document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
-    }
-    
-    function closeSidebar() {
-        hamburger.classList.remove('active');
-        sidebar.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-    
-    hamburger.addEventListener('click', toggleSidebar);
-    overlay.addEventListener('click', closeSidebar);
-    
-    // Fermer la sidebar sur Escape
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && sidebar.classList.contains('active')) {
-            closeSidebar();
-        }
-    });
-}
-
 // Navigation entre les pages avec animation slide
 function showPage(pageId, direction = 'next') {
     if (isScrolling) return;
@@ -310,29 +279,6 @@ function showPage(pageId, direction = 'next') {
             isScrolling = false;
         }, 600);
     });
-    
-    // Désactiver tous les boutons de navigation
-    document.querySelectorAll('.nav-item').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    
-    // Activer le bouton correspondant
-    const activeBtn = document.querySelector(`.nav-item[data-page="${pageId}"]`);
-    if (activeBtn) {
-        activeBtn.classList.add('active');
-    }
-    
-    // Fermer la sidebar sur mobile après navigation
-    if (window.innerWidth <= 768) {
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('sidebarOverlay');
-        const hamburger = document.getElementById('hamburger');
-        
-        hamburger.classList.remove('active');
-        sidebar.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
 }
 
 // Navigation par scroll
@@ -786,9 +732,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Charger les données
     await loadProjectsData();
     
-    // Initialiser la barre latérale
-    initSidebar();
-    
     // Initialiser la navigation par scroll
     initScrollNavigation();
     
@@ -800,17 +743,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     // Navigation
     document.addEventListener('click', (event) => {
-        // Navigation par boutons
-        if (event.target.classList.contains('nav-item') || event.target.closest('.nav-item')) {
-            const navItem = event.target.classList.contains('nav-item') ? event.target : event.target.closest('.nav-item');
-            const pageId = navItem.dataset.page;
-            if (pageId) {
-                const currentIndex = pages.indexOf(pageId);
-                const direction = currentIndex > currentPageIndex ? 'next' : 'prev';
-                showPage(pageId, direction);
-            }
-        }
-        
         // Boutons d'action dans le hero
         if (event.target.classList.contains('btn-primary') || event.target.classList.contains('btn-secondary')) {
             const pageId = event.target.dataset.page;
@@ -865,21 +797,5 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     });
     
-    // Gestion du redimensionnement
-    window.addEventListener('resize', () => {
-        // Fermer la sidebar sur desktop si elle est ouverte
-        if (window.innerWidth > 768) {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('sidebarOverlay');
-            const hamburger = document.getElementById('hamburger');
-            
-            hamburger.classList.remove('active');
-            sidebar.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-    
     console.log('Portfolio initialisé avec succès !');
 });
-
