@@ -3,7 +3,7 @@ let projectsData = {};
 let currentProject = null;
 let isScrolling = false;
 let currentPageIndex = 0;
-const pages = ['home', 'games', 'software', 'about', 'contact'];
+const pages = ['home', 'about', 'games', 'software', 'contact'];
 const PROJECTS_PER_PAGE = 3; // Nombre de projets à afficher initialement
 let displayedProjects = {
     games: PROJECTS_PER_PAGE,
