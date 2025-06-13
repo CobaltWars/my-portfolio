@@ -78,6 +78,25 @@
         "Statistiques détaillées",
         "Mode hors ligne disponible"
       ]
+    },
+    {
+      "id": "game4",
+      "title": "Puzzle Master",
+      "shortDescription": "Collection de puzzles logiques pour stimuler votre esprit.",
+      "fullDescription": "Puzzle Master est une collection de plus de 100 puzzles logiques conçus pour défier votre intellect. Des puzzles simples aux casse-têtes les plus complexes, ce jeu offre des heures de divertissement éducatif. Inclut des indices, un système de progression et des défis quotidiens.",
+      "image": "https://via.placeholder.com/350x200/f59e0b/ffffff?text=Puzzle+Master",
+      "images": [
+        "https://via.placeholder.com/800x600/f59e0b/ffffff?text=Puzzle+Master+Screenshot+1",
+        "https://via.placeholder.com/800x600/d97706/ffffff?text=Puzzle+Master+Screenshot+2",
+        "https://via.placeholder.com/800x600/fbbf24/ffffff?text=Puzzle+Master+Screenshot+3"
+      ],
+      "features": [
+        "Plus de 100 puzzles uniques",
+        "Système d'indices intelligent",
+        "Défis quotidiens",
+        "Statistiques détaillées",
+        "Mode hors ligne disponible"
+      ]
     }
   ],
   "software": [
