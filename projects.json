@@ -12,7 +12,8 @@
       "features": [
         "Gameplay die and retry",
         "Style minimaliste",
-        "Disponible pour windows et linux"
+        "Disponible pour windows et linux",
+        "Bientot disponible pour android"
       ],
       "buttons": [
         {
@@ -20,6 +21,12 @@
           "icon": "⬇️",
           "url": "https://cobaltwars.itch.io/towers-escape-game",
           "type": "primary"
+        }
+        {
+          "text": "Télécharger directement",
+          "icon": "⬇️",
+          "url": "download/game/Towers_Escape.zip",
+          "type": "secondary"
         }
       ]
     },
