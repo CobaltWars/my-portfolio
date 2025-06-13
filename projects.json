@@ -32,36 +32,34 @@
     },
     {
       "id": "game2",
-      "title": "Space Shooter",
-      "shortDescription": "Jeu de tir spatial avec des vaisseaux personnalisables et des niveaux intenses.",
-      "fullDescription": "Space Shooter vous propulse dans l'espace pour des combats intergalactiques épiques. Pilotez votre vaisseau spatial, améliorez vos armes et affrontez des vagues d'ennemis de plus en plus difficiles. Le jeu propose plusieurs modes de jeu et un système de classement en ligne.",
-      "image": "https://via.placeholder.com/350x200/10b981/ffffff?text=Space+Shooter",
+      "title": "My Chess",
+      "shortDescription": "C'est un jeu d'échec très original : il est octogonal !",
+      "fullDescription": "Un jeu d'échec octogonal, c'est original, non ? Cela inclut une manière différente de jouer, des stratégies différentes à adopter, mais c'est surtout très différent du format du plateau traditionnel !",
+      "image": "resource/my_chess/echec.png",
       "images": [
         "https://via.placeholder.com/800x600/10b981/ffffff?text=Space+Shooter+Screenshot+1",
         "https://via.placeholder.com/800x600/047857/ffffff?text=Space+Shooter+Screenshot+2",
         "https://via.placeholder.com/800x600/34d399/ffffff?text=Space+Shooter+Screenshot+3"
       ],
       "features": [
-        "Vaisseaux personnalisables",
-        "Système d'armes évolutif",
-        "Classements en ligne",
-        "Mode survie infini",
-        "Graphismes 3D immersifs"
+        "Plateau octogonal",
+        "Différents mode de jeux",
+        "Disponible pour windows"
       ],
       "buttons": [
         {
-          "text": "Voir sur GitHub",
-          "icon": "💻",
-          "url": "https://github.com",
-          "type": "secondary"
+          "text": "Télécharger",
+          "icon": "⬇️",
+          "url": "download/game/My Chess.zip",
+          "type": "primary"
         }
       ]
     },
     {
       "id": "game3",
-      "title": "Puzzle Master",
-      "shortDescription": "Collection de puzzles logiques pour stimuler votre esprit.",
-      "fullDescription": "Puzzle Master est une collection de plus de 100 puzzles logiques conçus pour défier votre intellect. Des puzzles simples aux casse-têtes les plus complexes, ce jeu offre des heures de divertissement éducatif. Inclut des indices, un système de progression et des défis quotidiens.",
+      "title": "Flappy Bird Remastered",
+      "shortDescription": "Le bon vieux Flappy Bird, mais en 10x mieux !",
+      "fullDescription": "C'est Flappy Bird, mais cette fois, avec une refonte des graphisme. Une prochaine maj arrivera, avec un mod histoire, et plus !",
       "image": "https://via.placeholder.com/350x200/f59e0b/ffffff?text=Puzzle+Master",
       "images": [
         "https://via.placeholder.com/800x600/f59e0b/ffffff?text=Puzzle+Master+Screenshot+1",
@@ -69,12 +67,17 @@
         "https://via.placeholder.com/800x600/fbbf24/ffffff?text=Puzzle+Master+Screenshot+3"
       ],
       "features": [
-        "Plus de 100 puzzles uniques",
-        "Système d'indices intelligent",
-        "Défis quotidiens",
-        "Statistiques détaillées",
-        "Mode hors ligne disponible"
+        "Refonte des graphismes",
+        "MAJ pour bientot",
+        "Disponible pour windows"
       ]
+    },
+    {
+      "id": "game4",
+      "title": "Conways game of life",
+      "shortDescription": "Plongez dans une simulation du jeu imaginé par John Horton Conway.",
+      "fullDescription": "Conways game of life (jeu de la vie en français) de Conway est un automate cellulaire créé par le mathématicien John Horton Conway. Il simule l'évolution de cellules sur une grille selon des règles simples de naissance, survie et mort.",
+      "image": "https://img.itch.zone/aW1nLzE1NDY1MzUzLnBuZw==/original/MQ1YaI.png"
     }
   ],
   "software": [
