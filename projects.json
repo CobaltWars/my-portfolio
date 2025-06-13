@@ -7,9 +7,7 @@
       "fullDescription": "Towers Escape est un jeu où vous devez survivre le plus longtemps possible et obtenir le meilleur score. Toutes les 20 secondes, le jeu devient de plus en plus difficile, mettant vos nerfs à rude épreuve !",
       "image": "https://img.itch.zone/aW1hZ2UvMjYxMjQ4Ni8xNTU2MDMxOS5wbmc=/347x500/wmcZhS.png",
       "images": [
-        "https://via.placeholder.com/800x600/3b82f6/ffffff?text=Adventure+Quest+Screenshot+1",
-        "https://via.placeholder.com/800x600/1d4ed8/ffffff?text=Adventure+Quest+Screenshot+2",
-        "https://via.placeholder.com/800x600/60a5fa/ffffff?text=Adventure+Quest+Screenshot+3"
+        "https://img.itch.zone/aW1hZ2UvMjYxMjQ4Ni8xNTU2MDMxOS5wbmc=/347x500/wmcZhS.png"
       ],
       "features": [
         "Monde ouvert explorable",
@@ -20,16 +18,10 @@
       ],
       "buttons": [
         {
-          "text": "Télécharger",
+          "text": "Visitez la page itch",
           "icon": "⬇️",
-          "url": "#download",
+          "url": "https://cobaltwars.itch.io/towers-escape-game",
           "type": "primary"
-        },
-        {
-          "text": "Démo en ligne",
-          "icon": "🎮",
-          "url": "#demo",
-          "type": "secondary"
         }
       ]
     },
