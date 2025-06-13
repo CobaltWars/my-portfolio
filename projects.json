@@ -2,8 +2,8 @@
   "games": [
     {
       "id": "game1",
-      "title": "Adventure Quest",
-      "shortDescription": "Un jeu d'aventure captivant avec des énigmes et des combats épiques.",
+      "title": "Towers Escape",
+      "shortDescription": "Survi le plus longtemps possible avant de finir écrasé sur une tour.",
       "fullDescription": "Adventure Quest est un jeu d'aventure immersif qui vous plonge dans un monde fantastique. Explorez des donjons mystérieux, résolvez des énigmes complexes et affrontez des créatures légendaires. Le jeu propose un système de progression complet avec des compétences à débloquer et des équipements à collecter.",
       "image": "https://via.placeholder.com/350x200/3b82f6/ffffff?text=Adventure+Quest",
       "images": [
