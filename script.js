@@ -3,8 +3,10 @@ let projectsData = {};
 let currentProject = null;
 let isScrolling = false;
 let currentPageIndex = 0;
+let lastScrollTime = 0;
 const pages = ['home', 'about', 'games', 'software', 'contact'];
 const PROJECTS_PER_PAGE = 3; // Nombre de projets à afficher initialement
+const scrollCooldown = 800;
 let displayedProjects = {
     games: PROJECTS_PER_PAGE,
     software: PROJECTS_PER_PAGE
@@ -288,9 +290,9 @@ function initScrollNavigation() {
     const scrollCooldown = 1000; // Temps d'attente entre les navigations
     
     function handleScroll(event) {
-        if (isScrolling) return;
+        if (Date.now() - lastScrollTime < scrollCooldown) return;
         
-        const now = Date.now();
+        lastScrollTime = Date.now();
         if (now - lastScrollTime < scrollCooldown) return;
         
         const delta = event.deltaY || event.detail || event.wheelDelta;
