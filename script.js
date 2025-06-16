@@ -284,17 +284,28 @@ function showPage(pageId, direction = 'next') {
 // Navigation par scroll
 function initScrollNavigation() {
     let lastScrollTime = 0;
-    const scrollCooldown = 800; // Délai de 800ms entre 2 actions
-
+    const scrollThreshold = 100; // Seuil de scroll minimum
+    const scrollCooldown = 5000; // Temps d'attente entre les navigations
+    
     function handleScroll(event) {
-        if (isScrolling || Date.now() - lastScrollTime < scrollCooldown) return;
-        lastScrollTime = Date.now();
+        if (isScrolling) return;
+        
+        const now = Date.now();
+        if (now - lastScrollTime < scrollCooldown) return;
         
         const delta = event.deltaY || event.detail || event.wheelDelta;
-        if (Math.abs(delta) < 100) return; // Seuil minimal
-
-        if (delta > 0) navigateToNextPage();
-        else navigateToPreviousPage();
+        
+        if (Math.abs(delta) < scrollThreshold) return;
+        
+        lastScrollTime = now;
+        
+        if (delta > 0) {
+            // Scroll vers le bas - page suivante
+            navigateToNextPage();
+        } else {
+            // Scroll vers le haut - page précédente
+            navigateToPreviousPage();
+        }
     }
     
     // Gestion du scroll avec la molette
