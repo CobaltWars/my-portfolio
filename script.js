@@ -285,7 +285,7 @@ function showPage(pageId, direction = 'next') {
 function initScrollNavigation() {
     let lastScrollTime = 0;
     const scrollThreshold = 100; // Seuil de scroll minimum
-    const scrollCooldown = 5000; // Temps d'attente entre les navigations
+    const scrollCooldown = 3000; // Temps d'attente entre les navigations
     
     function handleScroll(event) {
         if (isScrolling) return;
